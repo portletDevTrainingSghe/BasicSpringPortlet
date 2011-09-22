@@ -5,25 +5,23 @@ package com.sungardhe.luminis.portlets.examples.BasicSpringPortlet.controller;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
-//import org.apache.commons.logging.Log;
-//import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.web.portlet.ModelAndView;
 import org.springframework.web.portlet.mvc.AbstractController;
 
 
 
 public class ViewController extends AbstractController{
-	//private static Log log = LogFactory.getLog(ViewController.class);
+	private static Log log = LogFactory.getLog(ViewController.class);
 	private String message;
 	
 	protected ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
-		//log.debug("Entering ViewController.handleRenderRequestInternal()");
-		//Map<?, ?> userInfo = (Map<?, ?>)request.getAttribute(RenderRequest.USER_INFO);
-		//String loggedInUser = (String)userInfo.get("user.name.nickName");
-		//log.debug("This is the user.name.nickName that is assigned: " + loggedInUser);
+		log.info("Entering ViewController.handleRenderRequestInternal()");
+		log.info("This is the message that is assigned: " + message);
 		ModelAndView modelAndView = new ModelAndView("View");
 		modelAndView.addObject("injectedMessage", message);
-		//log.debug("Exiting ViewController.handleRenderRequestInternal() " + modelAndView);
+		log.info("The modelandview: " + modelAndView.toString());
 		return modelAndView;
 	}
 
